@@ -56,6 +56,7 @@ def xtrct_grid(input: str,
     ymax : float
         maximum y coordinate of subdomain
     """
+    input_dir = os.path.join(input_dir, '')
     header = ','.join([
         'Met_Directory',
         'File_Name',
