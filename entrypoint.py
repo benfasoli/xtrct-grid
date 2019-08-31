@@ -80,7 +80,8 @@ def xtrct_grid(input: str,
     config = '\n'.join([header, body])
     with open('INPUT_EXTRACT.TXT', 'w') as f:
         f.write(config)
-    proc = subprocess.run('./xtrct_grid', check=True)
+    wd = os.path.dirname(os.path.realpath(__file__))
+    proc = subprocess.run(os.path.join(wd, 'xtrct_grid'), check=True)
     os.rename(output, os.path.join(output_dir, output))
 
 
