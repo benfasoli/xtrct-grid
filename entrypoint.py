@@ -81,7 +81,8 @@ def xtrct_grid(input: str,
     with open('INPUT_EXTRACT.TXT', 'w') as f:
         f.write(config)
     wd = os.path.dirname(os.path.realpath(__file__))
-    proc = subprocess.run(os.path.join(wd, 'xtrct_grid'), check=True)
+    proc = subprocess.run(os.path.join(wd, 'xtrct_grid'),
+                          stdout=subprocess.DEVNULL, check=True)
     os.rename(output, os.path.join(output_dir, output))
 
 
@@ -108,6 +109,6 @@ if __name__ == '__main__':
                         help='mount location for output data volume')
     parser.add_argument('--levels', type=int, default=36,
                         help='vertical levels to extract')
-                        
+
     args = parser.parse_args()
     xtrct_grid(**vars(args))
